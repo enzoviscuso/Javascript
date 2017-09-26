@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Shift code</title>
+</head>
+<body>
+ 
+INPUT CODE
+<br>
+<textarea id="a" name="a" cols="100" rows="10">
+</textarea>
+<br>
+<br>
+Shift +/- <input type="text" name="n" id="n"> &nbsp; 
+<input type="submit" name="ok" id="ok" value="go" OnClick="document.getElementById('b').value=sposta(); ">
+<br>
+<br>
+OUTPUT CODE
+<br>
+<textarea id="b" name="b" cols="100" rows="10">
+</textarea>
+<br>
+<br>
+<script>
+function sposta() {
+  var a=document.getElementById('a').value;
+  var n=document.getElementById('n').value;
+  if (n==0) return a;
+  var blank50="                                                                      ";
+  var blank=blank50.substr(0,n);
+  var s=a.split('\n'); 
+  var b2="";
+   s.forEach(function(x) {
+       if (n>0){
+          var y=blank+x;
+          b2=b2+y+"\n";
+       } else {
+          var y=x.substr(-n);
+	  b2=b2+y+"\n";
+       }
+   });
+   return b2;
+}
+</script>
+</body>
+</html>
